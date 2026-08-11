@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content%}
+<p> Edit post </p>
+
+
+<form action="/posts/edit/{{post['id']}}" method="post" enctype="multipart/form-data">
+     <label>Title</label>
+    <input type="text" name="title" value="{{post['title']}}" required>
+    <br><br>
+
+    <label>Content</label>
+    <textarea name="content" required>{{post['content']}}</textarea>
+    <br><br>
+
+    <label>Change Image</label>
+    <img
+        src="/static/uploads/{{ post['image'] }}"
+        alt="{{ post['title'] }}"
+        width="300"
+    >
+    <input type="file" name="image" accept="image/*">
+    <br><br>
+
+    <button type="submit"> Update </button>
+
+</form>
+{% endblock %}

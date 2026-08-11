@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content%}
+<h3> Blog Posts </h3>
+<hr>
+{% if posts %}
+    {% for post in posts %}
+        
+        <h3>{{ post["title"] }}</h3>
+
+        <p>By {{ post["author"] }}</p>
+
+        {% if post["image"] %}
+            <img
+                src="/static/uploads/{{ post['image'] }}"
+                alt="{{ post['title'] }}"
+                width="300"
+            >
+        {% endif %}
+
+        <p>{{ post["content"] }}</p>
+
+        {% if post["user_id"] == user_id %}
+
+        <a href='/posts/edit/{{post["id"]}}'>
+            <button>
+                Edit
+            </button>
+        </a>
+        
+        <form action="/posts/delete/{{ post['id'] }}" method="post">
+
+            <button type="submit">Delete</button>
+
+        </form>
+        {% endif %}
+        <hr>
+    {% endfor %}
+
+{% else %}
+    <h3>No posts available</h3>
+
+    <a href="/posts/create">
+        <button>Create Post</button>
+    </a>
+{% endif %}
+{% endblock %}

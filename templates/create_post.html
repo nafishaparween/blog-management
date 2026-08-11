@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content%}
+<p> Create new post
+</p>
+
+<form action="/posts/create" method="post" enctype="multipart/form-data">
+     <label>Title</label>
+    <input type="text" name="title" required>
+    <br><br>
+
+    <label>Content</label>
+    <textarea name="content" required></textarea>
+    <br><br>
+
+    <label>Image</label>
+    <input type="file" name="image" accept="image/*">
+    <br><br>
+
+    <button type="submit">Publish</button>
+
+</form>
+{% endblock %}

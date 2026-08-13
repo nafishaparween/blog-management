@@ -95,7 +95,7 @@ Post ownership is also checked before allowing edit or delete operations. This p
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/nafishaparween/blog-management
 ```
 
 Move into the project directory:
